@@ -1,15 +1,7 @@
 import json
 import cv2
 import numpy as np 
-from fastapi import APIRouter, File, UploadFile
-from fastapi.logger import logger
 from tensorflow.keras.models import load_model
-
-
-router = APIRouter(prefix="/places")
-
-
-IMAGE_SIZE = (224, 224)
 
 def inference(image):
     model = _get_place_model()
@@ -41,9 +33,3 @@ def _resize_image(byte_image):
 def _add_axis_to_image(image):
     image = image[np.newaxis, :, :, :]
     return image
-
-
-
-@router.post("inference")
-async def infer_place():
-    return ""
