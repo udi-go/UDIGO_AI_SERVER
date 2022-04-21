@@ -3,3 +3,8 @@ uvicorn
 numpy
 opencv-python
 tensorflow==2.5.0
+pytest
+pytest-cov
+pytest-sugar
+requests
+python-multipart
