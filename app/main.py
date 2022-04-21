@@ -5,23 +5,20 @@ from app.routes import places
 
 def create_app():
     app = FastAPI()
+    origins = [
+        "http://localhost",
+        "http://localhost:8000",
+    ]
 
-    def add_cors_middleware():
-        origins = [
-            "http://localhost",
-            "http://localhost:8000",
-        ]
-
-        app.add_middleware(
-            CORSMiddleware,
-            allow_origins=origins,
-            allow_credentials=True,
-            allow_methods=["*"],
-            allow_headers=["*"],
-        )
-
-        app.add_cors_middleware()
-
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+    
+    app.include_router(places.router, tags=["Inference"], prefix="/api")
     return app
     
 

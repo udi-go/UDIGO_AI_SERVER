@@ -2,7 +2,8 @@ import json
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
-from common.config import MLSettings
+from app.common.config import MLSettings
+
 
 ml_settings = MLSettings()
 
@@ -19,7 +20,7 @@ def get_place_model():
     return model
 
 
-def _get_place_labels():
+def get_place_label_info():
     with open(ml_settings.LABEL_PATH, "r", encoding="utf-8-sig") as f:
         label_info = json.load(f)
     return label_info
