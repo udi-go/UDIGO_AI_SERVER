@@ -13,7 +13,4 @@ def get_specific_label_info(index: str) -> dict:
     label_info = label_info[index]
     label_category = label_info["category"]
     random_label_sentence = np.random.choice(label_info["sentence"])
-    return {"label_category": label_category, "sentence": random_label_sentence} 
-
-    
-    
+    return {"label_category": label_category, "sentence": random_label_sentence}
