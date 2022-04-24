@@ -9,7 +9,7 @@ ml_settings = MLSettings()
 
 
 def preprocess_image(bytes_image: bytes):
-    image = _read_byte_image(bytes_image)
+    image = read_byte_image(bytes_image)
     image = _resize_image(image)
     image = _add_axis_to_image(image)
     return image
@@ -26,14 +26,14 @@ def get_place_label_info():
     return label_info
 
 
-def _resize_image(image):
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image = cv2.resize(image, ml_settings.IMAGE_SIZE)
+def read_byte_image(bytes_image):
+    image = cv2.imdecode(np.frombuffer(bytes_image, np.uint8), cv2.IMREAD_UNCHANGED)
     return image
 
 
-def _read_byte_image(bytes_image):
-    image = cv2.imdecode(np.fromstring(bytes_image, np.uint8), cv2.IMREAD_UNCHANGED)
+def _resize_image(image):
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = cv2.resize(image, ml_settings.IMAGE_SIZE)
     return image
 
 
