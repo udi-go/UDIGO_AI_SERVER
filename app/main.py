@@ -6,7 +6,6 @@ from app.routes import places
 def create_app():
     app = FastAPI()
     origins = [
-        "http://localhost",
         "http://localhost:8000",
     ]
 
@@ -17,9 +16,9 @@ def create_app():
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    
+
     app.include_router(places.router, tags=["Inference"], prefix="/api")
     return app
-    
+
 
 app = create_app()

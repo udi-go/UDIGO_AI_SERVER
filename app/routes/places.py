@@ -9,7 +9,6 @@ router = APIRouter(prefix="/places")
 
 @router.post("/inference/")
 async def infer_place(image: UploadFile = File(...)) -> JSONResponse:
-    print(type(image))
     place_image = await image.read()
     place_image = preprocess_image(place_image)
     pred_label_index = inference(place_image)
