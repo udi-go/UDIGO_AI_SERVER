@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import places
+from app.common.config import MLSettings
+
+settings = MLSettings()
 
 
 def create_app():
     app = FastAPI()
-    origins = [
-        "http://localhost:8000",
-    ]
+    origins = settings.ALLOWED_HOST
 
     app.add_middleware(
         CORSMiddleware,
