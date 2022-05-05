@@ -8,3 +8,4 @@ pytest-cov
 pytest-sugar
 requests
 python-multipart
+python-decouple
