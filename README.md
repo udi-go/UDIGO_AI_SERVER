@@ -1,6 +1,6 @@
 # UDIGO AI Inference server 
 - Framework: FastAPI, Tensorflow
----
+
 ## 55개의 장소이미지를 학습한 이미지 분류모델 서빙
 
 - UDIGO WAS에서 이미지를 받아서 추론하고 **카테고리**와 카테고리를 설명하는 한 문장을 return
