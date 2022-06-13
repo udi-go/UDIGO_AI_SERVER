@@ -12,4 +12,4 @@
 ---
 - Endpoint: input - image
     - /api/places/inference
-    
+    - [Swagger](https://www.chaechae.site/docs)
